@@ -55,6 +55,11 @@ func main() {
 					r.Post("/register", controller.Register)
 				})
 			})
+
+			r.Route("/transaction", func(r chi.Router) {
+				r.Use(middleware.AuthMiddleware)
+
+			})
 		})
 
 	})

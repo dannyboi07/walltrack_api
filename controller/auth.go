@@ -47,6 +47,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	_, err = db.InsertUser(model.User{
 		Email:        *userRegister.Email,
 		PasswordHash: hashedPw,
+		Balance:      0,
 	})
 	if err != nil {
 		statusCode, message := 0, ""
